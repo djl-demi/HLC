@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
+    <title>重力储能管理系统</title>
+
+  </head>
+  <body>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        serviceHost: "https://classify.jsyinghuan.com/_AMapService"
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=1.4.15&key=3ca0e39e00f0ef11098b1447ac9452c5&plugin=AMap.Autocomplete,AMap.MouseTool,AMap.PolyEditor,AMap.Driving,AMap.DistrictSearch,AMap.Geocoder,AMap.MarkerClusterer"
+    ></script>
+    <script src="https://webapi.amap.com/ui/1.1/main.js"></script>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+  </body>
+</html>
