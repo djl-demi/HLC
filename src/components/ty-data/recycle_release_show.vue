@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted() {
-    this.getRecycleModule()
+    // this.getRecycleModule()
   },
   methods: {
     // 可回收统计

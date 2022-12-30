@@ -111,6 +111,6 @@ export default {
 
 #line_container {
   padding: 20px;
-  height: 328px;
+  height: 385px;
 }
 </style>

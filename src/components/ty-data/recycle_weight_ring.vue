@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted() {
-    this.getRecyclingSum(1, 1)
+    // this.getRecyclingSum(1, 1)
   },
   methods: {
     // 今日

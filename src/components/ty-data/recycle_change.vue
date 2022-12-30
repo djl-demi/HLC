@@ -61,7 +61,7 @@ export default {
     }
   },
   mounted() {
-    this.getRecoveryChangeData(1)
+    // this.getRecoveryChangeData(1)
   },
   methods: {
     viewToday() {

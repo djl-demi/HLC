@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-    this.plotRankData()
+    // this.plotRankData()
   },
   methods: {
     // 小区排名

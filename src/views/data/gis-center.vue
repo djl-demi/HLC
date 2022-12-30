@@ -5,16 +5,15 @@
     <div class="map_legend">
       <!-- <TyLegend :facilityType="facilityType" @getFacilityType="getFacilityType"></TyLegend> -->
     </div>
-    <div class="facilities_summary">
-      <TyFacilitesStatictis></TyFacilitesStatictis>
-    </div>
-
-    <div class="latest_categories_recycle">
+     <div class="facilities_summary ">
       <TyLatestCategoriesRecycle></TyLatestCategoriesRecycle>
     </div>
 
-    <div class="chuku_pie_chart">
+    <div class="latest_categories_recycle">
       <TyChukuPie></TyChukuPie>
+    </div>
+    <div class="chuku_pie_chart">
+      <TyFacilitesStatictis></TyFacilitesStatictis>
     </div>
 
     <div class="chuku_trace_chart">
@@ -495,7 +494,7 @@ export default {
 
 <style scoped lang="less">
 .gisCenter {
-  height: 970px;
+  height: 100%;
 }
 
 #container {

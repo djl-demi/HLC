@@ -16,7 +16,7 @@ export default {
     }
   },
   mounted() {
-    this.getTwoWeekStockRecoed()
+    // this.getTwoWeekStockRecoed()
   },
   methods: {
     // 居民每日投放次数统计

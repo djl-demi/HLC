@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted() {
-    this.getMonthRecycleData()
+    // this.getMonthRecycleData()
   },
   methods: {
     // 年度月回收统计

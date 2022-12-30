@@ -9,7 +9,7 @@
             <div class="box_item">
               <div class="box_value">{{ huanbaoroom }}</div>
             </div>
-            <div class="box_label">环保屋</div>
+            <div class="box_label">发电机</div>
           </div>
         </a-col>
         <a-col :span="8">
@@ -18,8 +18,8 @@
               <div class="box_value">{{ plotnums }}</div>
             </div>
             <div class="box_label">
-              服务单位
-              <a-popover placement="bottomRight" trigger="click">
+              升降梯
+              <!-- <a-popover placement="bottomRight" trigger="click">
                 <template slot="content">
                   <p style="font-size: 16px;">服务单位数量包含：</p>
                   <span>1、小区</span><br />
@@ -28,7 +28,7 @@
                   <span>4、医院</span><br />
                 </template>
                 <a-icon type="question-circle" />
-              </a-popover>
+              </a-popover> -->
             </div>
           </div>
         </a-col>
@@ -37,7 +37,7 @@
             <div class="box_item">
               <div class="box_value">{{ wisdomtrash }}</div>
             </div>
-            <div class="box_label">智能桶</div>
+            <div class="box_label">水平车</div>
           </div>
         </a-col>
       </a-row>
@@ -47,7 +47,7 @@
             <div class="box_item">
               <div class="box_value">{{ vehicles }}</div>
             </div>
-            <div class="box_label">车辆数</div>
+            <div class="box_label">充电板</div>
           </div>
         </a-col>
         <a-col :span="8">
@@ -55,7 +55,7 @@
             <div class="box_item">
               <div class="box_value">{{ sortcenter }}</div>
             </div>
-            <div class="box_label">分拣中心</div>
+            <div class="box_label">滑轮车</div>
           </div>
         </a-col>
         <a-col :span="8">
@@ -63,7 +63,7 @@
             <div class="box_item">
               <div class="box_value">{{ dealfactories }}</div>
             </div>
-            <div class="box_label">处理厂</div>
+            <div class="box_label">监控设备</div>
           </div>
         </a-col>
       </a-row>
@@ -76,16 +76,16 @@ export default {
   name: "facilities_statistics",
   data() {
     return {
-      huanbaoroom: 7,
+      huanbaoroom: 17,
       plotnums: 140,
       wisdomtrash: 46,
-      vehicles: 5,
-      sortcenter: 1,
+      vehicles: 500,
+      sortcenter: 100,
       dealfactories: 7
     }
   },
   mounted() {
-    this.getFacilityStatistics()
+    // this.getFacilityStatistics()
   },
   methods: {
     // 获取设施统计

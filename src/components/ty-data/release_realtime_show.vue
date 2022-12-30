@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-    this.residentRealTimeRelease()
+    // this.residentRealTimeRelease()
   },
   methods: {
     residentRealTimeRelease() {

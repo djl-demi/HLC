@@ -6,6 +6,7 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const CompressionPlugin = require("compression-webpack-plugin")
 const productionGzipExtensions = ["js", "css"]
 module.exports = {
+  lintOnSave: false,
   publicPath: "/",
   productionSourceMap: false,
   runtimeCompiler: true,

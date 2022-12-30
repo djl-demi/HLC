@@ -80,7 +80,7 @@ export default {
     }
   },
   mounted() {
-    this.getMonthRecycleData()
+    // this.getMonthRecycleData()
   },
   methods: {
     // 下拉

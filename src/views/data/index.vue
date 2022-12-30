@@ -1,13 +1,14 @@
 <template>
   <div id="dataScreen" class="dataScreen">
     <div class="top">
+      <div id="domId"></div>
       <a-row>
         <a-col :span="8">
           <div class="temperature"><img :src="weather_img" class="weather_img" />温度：{{ weather_temp }}</div>
         </a-col>
 
         <a-col :span="8">
-          <div class="title">{{ title }}重力储能信息化平台</div>
+          <div class="title">重力储能信息化平台</div>
         </a-col>
         <a-col :span="8">
           <div class="time">{{ realTime | getCurrentTime(this) }}</div>
@@ -19,9 +20,7 @@
     </div>
   </div>
 </template>
-
 <script>
-import TyDataCenter from "./date-center.vue"
 import TyGisCenter from "./gis-center.vue"
 export default {
   name: "dataScreen",
@@ -31,13 +30,16 @@ export default {
       weather_temp: "17°C/24°C",
       weather_img: "https://image.jsyinghuan.com/map/cloud.png",
       title: "泗阳",
-      dataCenterClass: "data-center-select",
       gisCenterClass: "gis-center",
-      template: "TyGisCenter"
+      template: "TyGisCenter",
+
+      viewToken: "62e6dfc4a7004d53938c9301856bb81a",
+      loaderConfig: null,
+      viewer3D:undefined,
+      app:undefined
     }
   },
   components: {
-    TyDataCenter,
     TyGisCenter
   },
   filters: {
@@ -63,10 +65,15 @@ export default {
     }
   },
   mounted() {
+    console.log(new BimfaceSDKLoaderConfig())
+    var options = new BimfaceSDKLoaderConfig()
+    options.viewToken = this.viewToken
+    BimfaceSDKLoader.load(options, this.successCallback, this.failureCallback)
+
     this.$message.info("为了更好的体验大屏效果，建议F11全屏查看")
     const user = JSON.parse(localStorage.getItem("userInfo"))
     this.title = user.area_name
-    this.getLocalWeather(user.areaid)
+    // this.getLocalWeather(user.areaid)
     // 时间定时器
     var _this = this
     this.timer = setInterval(() => {
@@ -74,18 +81,39 @@ export default {
     }, 1000)
   },
   methods: {
-    // 切换页面
-    toggleData() {
-      this.dataCenterClass = "data-center-select"
-      this.gisCenterClass = "gis-center"
-      this.template = "TyDataCenter"
+    successCallback(viewMetaData) {
+      console.log(viewMetaData,"viewMetaData");
+      if (viewMetaData.viewType == "3DView") {
+        // ======== 判断是否为3D模型 ========
+        // 获取DOM元素
+        let dom4Show = document.getElementById("domId")
+        let webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig()
+        webAppConfig.domElement = dom4Show
+        // 设置全局单位
+        webAppConfig.globalUnit = Glodon.Bimface.Common.Units.LengthUnits.Millimeter
+        // 创建WebApplication
+        this.app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig)
+        // 添加待显示的模型
+        this.app.addView(this.viewToken)
+        // 从WebApplication获取viewer3D对象
+        this.viewer3D = this.app.getViewer()
+        // 监听添加view完成的事件
+        this.viewer3D.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, ()=> {
+          //自适应屏幕大小
+          window.onresize = ()=> {
+            this.viewer3D.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40)
+          }
+          // 调用viewer3D对象的Method，可以继续扩展功能
+          // 渲染3D模型
+          this.viewer3D.render()
+        })
+      }
     },
-    // 切换gis
-    toggleGis() {
-      this.dataCenterClass = "data-center"
-      this.gisCenterClass = "gis-center-select"
-      this.template = "TyGisCenter"
+
+    failureCallback(error) {
+      console.log(error)
     },
+  
     //设置小于10的数字在加0
     setZero(a) {
       return a < 10 ? "0" + a : a
@@ -136,6 +164,15 @@ export default {
   height: auto;
   min-width: 1290px;
   /* min-height: 800px; */
+}
+#domId {
+  position: absolute;
+  top: 90px;
+  height: 100%;
+  width: 100%;
+}
+/deep/.bf-container{
+  background: #0a0d5d !important; ;
 }
 
 .top {

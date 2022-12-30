@@ -1,7 +1,7 @@
 <template>
   <!-- 最近七天各品类回收 -->
   <div id="latest_catories_recycle" class="latest_catories_recycle">
-    <div class="title">近七天各品类回收情况(单位:kg)</div>
+    <div class="title">电量统计展示</div>
     <div class="content">
       <div id="line_container"></div>
     </div>
@@ -18,7 +18,7 @@ export default {
     }
   },
   mounted() {
-    this.getLatestRecycleData()
+    // this.getLatestRecycleData()
   },
   methods: {
     // 获取最近七天回收数据
@@ -88,8 +88,8 @@ export default {
 #latest_catories_recycle {
   color: honeydew;
   width: 509px;
-  height: 368px;
-  background-image: url(../../assets/data/index/lastweekrecycle_bg.png);
+  height: 445px;
+  background-image: url(../../assets/data/index/facilities_statistics.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -99,13 +99,13 @@ export default {
 .title {
   text-align: center;
   height: 48px;
-  line-height: 48px;
+  line-height: 56px;
   color: #00e4ff;
   font-size: 16px;
 }
 
 #line_container {
   padding: 20px;
-  height: 328px;
+  height: 385px;
 }
 </style>
