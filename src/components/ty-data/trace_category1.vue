@@ -1,7 +1,7 @@
 <template>
   <!-- 可回收物出库去向 -->
   <div id="chuku_trace" class="chuku_pie">
-    <div class="title">设备告警信息</div>
+    <div class="title">EMS任务信息</div>
     <div class="chuku_trace_content">
       <dv-scroll-board :config="config" style="height: 285px" />
     </div>
@@ -16,18 +16,18 @@ export default {
       config: {},
       dataSource: [],
       data: [
-        { id: 1, stockTime: "2022-12-30 ", userName: "设备1", houseNumber: "1606", netWeight: "已处理" },
-        { id: 2, stockTime: "2022-12-30 ", userName: "设备2", houseNumber: "201", netWeight: "未处理" },
-        { id: 3, stockTime: "2022-12-30 ", userName: "设备3", houseNumber: "907", netWeight: "已处理" },
-        { id: 4, stockTime: "2022-12-30 ", userName: "设备4", houseNumber: "1002", netWeight: "已处理" },
-        { id: 5, stockTime: "2022-12-30 ", userName: "设备5", houseNumber: "201", netWeight: "已处理" },
-        { id: 6, stockTime: "2022-12-30 ", userName: "设备6", houseNumber: "303", netWeight: "已处理" },
-        { id: 7, stockTime: "2022-12-30 ", userName: "设备7", houseNumber: "303", netWeight: "未处理" },
-        { id: 8, stockTime: "2022-12-30 ", userName: "设备8", houseNumber: "202", netWeight: "已处理" },
-        { id: 9, stockTime: "2022-12-30 ", userName: "设备9", houseNumber: "101", netWeight: "未处理" },
-        { id: 10, stockTime: "2022-12-30 ", userName: "设备10", houseNumber: "203", netWeight: "已处理" },
-        { id: 11, stockTime: "2022-12-30 ", userName: "设备11", houseNumber: "203", netWeight: "已处理" },
-        { id: 12, stockTime: "2022-12-30 ", userName: "设备12", houseNumber: "301", netWeight: "未处理" }
+        { id: 1, stockTime: "2022-12-30 ", userName: "设备1", houseNumber: "1606", netWeight: "准备" },
+        { id: 2, stockTime: "2022-12-30 ", userName: "设备2", houseNumber: "201", netWeight: "执行" },
+        { id: 3, stockTime: "2022-12-30 ", userName: "设备3", houseNumber: "907", netWeight: "完成" },
+        { id: 4, stockTime: "2022-12-30 ", userName: "设备4", houseNumber: "1002", netWeight: "准备" },
+        { id: 5, stockTime: "2022-12-30 ", userName: "设备5", houseNumber: "201", netWeight: "准备" },
+        { id: 6, stockTime: "2022-12-30 ", userName: "设备6", houseNumber: "303", netWeight: "准备" },
+        { id: 7, stockTime: "2022-12-30 ", userName: "设备7", houseNumber: "303", netWeight: "执行" },
+        { id: 8, stockTime: "2022-12-30 ", userName: "设备8", houseNumber: "202", netWeight: "执行" },
+        { id: 9, stockTime: "2022-12-30 ", userName: "设备9", houseNumber: "101", netWeight: "执行" },
+        { id: 10, stockTime: "2022-12-30 ", userName: "设备10", houseNumber: "203", netWeight: "完成" },
+        { id: 11, stockTime: "2022-12-30 ", userName: "设备11", houseNumber: "203", netWeight: "完成" },
+        { id: 12, stockTime: "2022-12-30 ", userName: "设备12", houseNumber: "301", netWeight: "完成" }
       ]
     }
   },
@@ -48,7 +48,7 @@ export default {
           evenRowBGC: null,
           rowNum: 9,
           align: ["center", "center", "center", "center"],
-          header: ["告警设备", "告警类型", "告警等级", "处理状态"],
+          header: ["任务时间", "处理类型", "任务内容", "任务状态"],
           data: this.dataSource
         }
       })

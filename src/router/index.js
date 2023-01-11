@@ -17,12 +17,6 @@ const routes = [
   },
 
   {
-    path: "/data",
-    name: "data",
-    meta: { title: "数据中心" },
-    component: () => import("@/views/data/data.vue")
-  },
-  {
     path: "/dataScreen",
     name: "dataScreen",
     meta: { title: "数据大屏中心" },
@@ -45,102 +39,102 @@ const routes = [
   },
 
   {
-    path: "/resident",
-    name: "Resident",
-    meta: { title: "居民管理" },
+    path: "/EMS",
+    name: "EMS",
+    meta: { title: "EMS信息同步" },
     component: () => import("@/views/main.vue"),
     children: [
       {
-        path: "community-management",
-        name: "CommunityManagement",
+        path: "task-reception",
+        name: "TaskReception",
         meta: { title: "任务接收" },
-        component: () => import("@/views/resident/community-management/community-management.vue")
+        component: () => import("@/views/EMS/task-reception/task-reception.vue")
       },
 
       {
-        path: "customer-information",
-        name: "CustomerInformation",
+        path: "task-feedback",
+        name: "TaskFeedback",
         meta: { title: "任务反馈" },
-        component: () => import("@/views/resident/customer-information/customer-information.vue")
+        component: () => import("@/views/EMS/task-feedback/task-feedback.vue")
       },
       {
-        path: "credit-management",
-        name: "CreditManagement",
+        path: "report-heartbeat",
+        name: "ReportHeartbeat",
         meta: { title: "上报心跳" },
         // props: route => ({ query: route.query }),
-        component: () => import("@/views/resident/credit/credit-management.vue")
+        component: () => import("@/views/EMS/report-heartbeat/report-heartbeat.vue")
       }
     ]
   },
 
   {
-    path: "/classify",
-    name: "Classify",
+    path: "/equipment",
+    name: "Equipment",
     meta: { title: "设备管理" },
     component: () => import("@/views/main.vue"),
     children: [
       {
-        path: "trading-management",
-        name: "TradingManagement",
+        path: "alternator",
+        name: "Alternator",
         meta: { title: "发电机" },
-        component: () => import("@/views/classify/trading-management.vue")
+        component: () => import("@/views/equipment/alternator.vue")
       },
       {
-        path: "inventory-management",
-        name: "InventoryManagement",
+        path: "elevator",
+        name: "Elevator",
         meta: { title: "升降梯" },
-        component: () => import("@/views/classify/stock/stock_index.vue")
+        component: () => import("@/views/equipment/elevator.vue")
       },
       {
-        path: "stockout-management",
-        name: "StockoutManagement",
+        path: "horizontal-car",
+        name: "HorizontalCar",
         meta: { title: "水平车" },
-        component: () => import("@/views/classify/stockout.vue")
+        component: () => import("@/views/equipment/horizontal-car.vue")
       }
     ]
   },
   {
-    path: "/integral",
-    name: "Integral",
+    path: "/communication",
+    name: "Communication",
     meta: { title: "设备通讯管理" },
     component: () => import("@/views/main.vue"),
     children: [
       {
-        path: "commodity-management",
-        name: "CommodityManagement",
+        path: "order-issuance",
+        name: "OrderIssuance",
         meta: { title: "指令下达" },
-        component: () => import("@/views/integral/commodity-management.vue")
+        component: () => import("@/views/communication/order-issuance.vue")
       },
       {
         path: "order-records",
         name: "OrderRecords",
         meta: { title: "指令反馈" },
-        component: () => import("@/views/integral/order-records.vue")
+        component: () => import("@/views/communication/order-records.vue")
       },
       {
-        path: "category-management",
-        name: "CategoryManagement",
+        path: "reminder-management",
+        name: "ReminderManagement",
         meta: { title: "提醒管理" },
-        component: () => import("@/views/integral/goods-category.vue")
+        component: () => import("@/views/communication/reminder-management.vue")
       },
       {
         path: "equipment-alarm-info",
         name: "EquipmentAlarmInfo",
         meta: { title: "报警管理" },
-        component: () => import("@/views/alarm/equipment-alarm-info.vue")
+        component: () => import("@/views/communication/equipment-alarm-info.vue")
       }
     ]
   },
 
   {
-    path: "/operation",
-    name: "Operation",
+    path: "/rechargeable",
+    name: "Rechargeable",
     meta: { title: "充放任务管理" },
     component: () => import("@/views/main.vue"),
     children: [
       {
-        path: "operational-activities",
-        name: "OperationalActivities",
+        path: "rechargeable-prepare",
+        name: "RechargeablePrepare",
         meta: { title: "充放任务准备" },
         component: {
           render(c) {
@@ -149,31 +143,31 @@ const routes = [
         },
         children: [
           {
-            path: "activity-release",
-            name: "ActivityRelease",
+            path: "power-matching",
+            name: "PowerMatching",
             meta: { title: "功率匹配" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/operational-activities/activity-release.vue")
+            component: () => import("@/views/rechargeable/rechargeable-prepare/power-matching.vue")
           },
           {
-            path: "press-release",
-            name: "PressRelease",
+            path: "scheduling-strategy",
+            name: "SchedulingStrategy",
             meta: { title: "调度策略" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/operational-activities/press-release.vue")
+            component: () => import("@/views/rechargeable/rechargeable-prepare/scheduling-strategy.vue")
           },
           {
-            path: "inspection-audit",
-            name: "InspectionAudit",
+            path: "exception-handling",
+            name: "ExceptionHandling",
             meta: { title: "异常处理" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/operational-activities/inspection-audit.vue")
+            component: () => import("@/views/rechargeable/rechargeable-prepare/exception-handling.vue")
           }
         ]
       },
       {
-        path: "answer-question",
-        name: "AnswerQuestion",
+        path: "rechargeable-implement",
+        name: "RechargeableImplement",
         meta: { title: "充放任务执行" },
         component: {
           render(c) {
@@ -182,25 +176,25 @@ const routes = [
         },
         children: [
           {
-            path: "classified-QandA",
-            name: "ClassifiedQandA",
+            path: "slice-dispatch",
+            name: "SliceDispatch",
             meta: { title: "slice调度" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/answer-question/classified-QandA.vue")
+            component: () => import("@/views/rechargeable/rechargeable-implement/slice-dispatch.vue")
           },
           {
-            path: "QandA-detail",
-            name: "QandADetail",
+            path: "task-feedback",
+            name: "TaskFeedback",
             meta: { title: "任务执行反馈" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/answer-question/QandA-detail.vue")
+            component: () => import("@/views/rechargeable/rechargeable-implement/task-feedback.vue")
           },
           {
-            path: "answer-record",
-            name: "AnswerRecord",
+            path: "task-handling",
+            name: "TaskHandling",
             meta: { title: "任务异常处理" },
             props: route => ({ query: route.query }),
-            component: () => import("@/views/operation/answer-question/answer-record.vue")
+            component: () => import("@/views/rechargeable/rechargeable-implement/task-handling.vue")
           }
         ]
       }

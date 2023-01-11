@@ -1,14 +1,17 @@
 <template>
   <div id="dataScreen" class="dataScreen">
     <div class="top">
-      <div id="domId"></div>
+      <!-- <div id="domId"></div> -->
+      <div class="conter">
+        <!-- <div id="bim"></div> -->
+      </div>
       <a-row>
         <a-col :span="8">
           <div class="temperature"><img :src="weather_img" class="weather_img" />温度：{{ weather_temp }}</div>
         </a-col>
 
         <a-col :span="8">
-          <div class="title">重力储能信息化平台</div>
+          <div class="title">重力储能HLC管理系统</div>
         </a-col>
         <a-col :span="8">
           <div class="time">{{ realTime | getCurrentTime(this) }}</div>
@@ -29,14 +32,13 @@ export default {
       realTime: new Date(),
       weather_temp: "17°C/24°C",
       weather_img: "https://image.jsyinghuan.com/map/cloud.png",
-      title: "泗阳",
       gisCenterClass: "gis-center",
       template: "TyGisCenter",
 
-      viewToken: "62e6dfc4a7004d53938c9301856bb81a",
+      // viewToken: "62e6dfc4a7004d53938c9301856bb81a",
       loaderConfig: null,
-      viewer3D:undefined,
-      app:undefined
+      viewer3D: undefined,
+      app: undefined
     }
   },
   components: {
@@ -82,7 +84,7 @@ export default {
   },
   methods: {
     successCallback(viewMetaData) {
-      console.log(viewMetaData,"viewMetaData");
+      console.log(viewMetaData, "viewMetaData")
       if (viewMetaData.viewType == "3DView") {
         // ======== 判断是否为3D模型 ========
         // 获取DOM元素
@@ -98,9 +100,9 @@ export default {
         // 从WebApplication获取viewer3D对象
         this.viewer3D = this.app.getViewer()
         // 监听添加view完成的事件
-        this.viewer3D.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, ()=> {
+        this.viewer3D.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, () => {
           //自适应屏幕大小
-          window.onresize = ()=> {
+          window.onresize = () => {
             this.viewer3D.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40)
           }
           // 调用viewer3D对象的Method，可以继续扩展功能
@@ -113,7 +115,7 @@ export default {
     failureCallback(error) {
       console.log(error)
     },
-  
+
     //设置小于10的数字在加0
     setZero(a) {
       return a < 10 ? "0" + a : a
@@ -165,14 +167,28 @@ export default {
   min-width: 1290px;
   /* min-height: 800px; */
 }
-#domId {
+.conter {
   position: absolute;
   top: 90px;
-  height: 100%;
+  height: 900px;
   width: 100%;
+  background: #0a0d5d !important;
 }
-/deep/.bf-container{
-  background: #0a0d5d !important; ;
+#bim {
+  position: absolute;
+  top: 90px;
+  height: 600px;
+  width: 500px;
+  margin: 7% 38%;
+  background-image: url(../../assets/bg/bim.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  color: #ffe374;
+  text-align: center;
+}
+/deep/.bf-container {
+  background: #0a0d5d !important;
 }
 
 .top {

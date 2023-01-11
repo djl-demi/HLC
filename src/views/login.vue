@@ -3,7 +3,7 @@
     <div class="lg">
       <div class="lg-title flex-between center">
         <!-- <img src="../assets/logo.png" class="logo" /> -->
-        <span class="lg-title-text">重力储能管理系统</span>
+        <span class="lg-title-text">重力储能HLC管理系统</span>
       </div>
       <div class="lg-content">
         <!-- <div class="lg-content-title">平台登录</div> -->
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       // form: {},
-      projectTitle: "重力储能管理系统"
+      projectTitle: "重力储能HLC管理系统"
     }
   },
   beforeCreate() {
@@ -50,9 +50,9 @@ export default {
       this.projectTitle = "南通开发区垃圾分类管理系统"
       document.title = "南通开发区垃圾分类管理系统"
     } else {
-      localStorage.setItem("project", "重力储能管理系统")
-      this.projectTitle = "重力储能管理系统"
-      document.title = "重力储能管理系统"
+      localStorage.setItem("project", "重力储能HLC管理系统")
+      this.projectTitle = "重力储能HLC管理系统"
+      document.title = "重力储能HLC管理系统"
     }
     console.log(project, "project")
   },
@@ -116,7 +116,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image: url("../assets/bg/login.png");
+  background-image: url("../assets/bg/login.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;

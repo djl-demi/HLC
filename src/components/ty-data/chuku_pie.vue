@@ -209,4 +209,8 @@ li {
 .ant-dropdown-link {
   color: #00e4ff;
 }
+.ant-dropdown-menu-item > a,
+.ant-dropdown-menu-submenu-title > a {
+  margin: -5px -25px;
+}
 </style>

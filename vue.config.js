@@ -47,7 +47,7 @@ module.exports = {
         return options
       })
     config.plugin("html").tap(args => {
-      args[0].title = "重力储能管理系统"
+      args[0].title = "重力储能HLC管理系统"
       return args
     })
   },

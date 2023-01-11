@@ -95,7 +95,7 @@ export default {
     return {
       showDataScreen: true,
       showMNdataScreen: false,
-      projectTitle: "重力储能管理系统",
+      projectTitle: "重力储能HLC管理系统",
       routes: {}, // vue路由对象
       userName: "", // 用户名
       selectedKeys: [],
@@ -118,58 +118,58 @@ export default {
         },
 
         {
-          key: "Resident",
+          key: "EMS",
           title: "EMS信息同步",
           icon: require("@/assets/icons/juminguanli.png"),
           children: [
-            { key: "CommunityManagement", title: "任务接收" },
-            { key: "CustomerInformation", title: "任务反馈" },
-            { key: "CreditManagement", title: "上报心跳" }
+            { key: "TaskReception", title: "任务接收" },
+            { key: "TaskFeedback", title: "任务反馈" },
+            { key: "ReportHeartbeat", title: "上报心跳" }
           ]
         },
         {
-          key: "Classify",
+          key: "Equipment",
           title: "设备管理",
           icon: require("@/assets/icons/fenleiguanli.png"),
           children: [
-            { key: "TradingManagement", title: "发电机" },
-            { key: "InventoryManagement", title: "升降梯" },
-            { key: "StockoutManagement", title: "水平车" }
+            { key: "Alternator", title: "发电机" },
+            { key: "Elevator", title: "升降梯" },
+            { key: "HorizontalCar", title: "水平车" }
           ]
         },
         {
-          key: "Integral",
+          key: "Communication",
           title: "设备通讯管理",
           icon: require("@/assets/icons/jifen.png"),
           children: [
-            { key: "CommodityManagement", title: "指令下达" },
+            { key: "OrderIssuance", title: "指令下达" },
             { key: "OrderRecords", title: "指令反馈" },
-            { key: "CategoryManagement", title: "提醒管理" },
+            { key: "ReminderManagement", title: "提醒管理" },
             { key: "EquipmentAlarmInfo", title: "报警管理" }
           ]
         },
 
         {
-          key: "Operation",
+          key: "Rechargeable",
           title: "充放任务管理",
           icon: require("@/assets/icons/yunyingguanli.png"),
           children: [
             {
-              key: "OperationalActivities",
+              key: "RechargeablePrepare",
               title: "充放任务准备",
               children: [
-                { key: "ActivityRelease", title: "功率匹配" },
-                { key: "PressRelease", title: "调度策略" },
-                { key: "InspectionAudit", title: "异常处理" }
+                { key: "PowerMatching", title: "功率匹配" },
+                { key: "SchedulingStrategy", title: "调度策略" },
+                { key: "ExceptionHandling", title: "异常处理" }
               ]
             },
             {
-              key: "AnswerQuestion",
+              key: "RechargeableImplement",
               title: "充放任务执行",
               children: [
-                { key: "ClassifiedQandA", title: "slice调度" },
-                { key: "QandADetail", title: "任务执行反馈" },
-                { key: "AnswerRecord", title: "任务异常处理" }
+                { key: "SliceDispatch", title: "slice调度" },
+                { key: "TaskFeedback", title: "任务执行反馈" },
+                { key: "TaskHandling", title: "任务异常处理" }
               ]
             }
           ]
@@ -355,19 +355,19 @@ export default {
 
     // 登出
     loginOut() {
-      // this.$api
-      //   .loginOut()
-      //   .then(res => {
-      //     localStorage.removeItem("token")
-      //     localStorage.removeItem("userInfo")
-      //     this.$message.success(res.msg)
-      //     this.$router.push({ name: "Login" })
-      //   })
-      //   .catch(e => {
-      //     localStorage.removeItem("token")
-      //     localStorage.removeItem("userInfo")
-      //     this.$router.push({ name: "Login" })
-      //   })
+      this.$api
+        .loginOut()
+        .then(res => {
+          localStorage.removeItem("token")
+          localStorage.removeItem("userInfo")
+          this.$message.success(res.msg)
+          this.$router.push({ name: "Login" })
+        })
+        .catch(e => {
+          localStorage.removeItem("token")
+          localStorage.removeItem("userInfo")
+          this.$router.push({ name: "Login" })
+        })
     },
 
     // 获取账号的项目

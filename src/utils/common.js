@@ -31,56 +31,7 @@ const com = {
     return process.env.VUE_APP_BASE_URL + "/admin/v1/classificationdetail/import?token=" + com.getToken()
   },
 
-  //小区管理文件导入
-  importCommunity() {
-    return process.env.VUE_APP_BASE_URL + "/admin/v1/plot/to/lead?token=" + com.getToken()
-  },
-
-  //居民信息文件导入
-  importCustomer() {
-    return process.env.VUE_APP_BASE_URL + "/admin/v1/user/to/lead?token=" + com.getToken()
-  },
-
-  //ic卡管理文件导入
-  importICcord() {
-    return process.env.VUE_APP_BASE_URL + "/admin/v1/ic/card/import?token=" + com.getToken()
-  },
-  //泗阳统计数据导入
-  importRecycleData(id) {
-    return process.env.VUE_APP_BASE_URL + "/admin/v1/diy/monthrecycle/import?garbage_house_id=" + id + "&token=" + com.getToken()
-  },
-  // 居民统计
-  importResidentStatistics() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/userCountSimulate/import?token=" + com.getToken()
-  },
-
-  importGarbageRecovery() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/trashRecycleSimulate/import?token=" + com.getToken()
-  },
-  importResidentLaunch() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/userRecycleSimulate/import?token=" + com.getToken()
-  },
-  importRecoveryChange() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/recycleSimulate/import?token=" + com.getToken()
-  },
-
-  importRecyclableLaunch() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/communitySimulate/import?token=" + com.getToken()
-  },
-  importRealtimeDelivery() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/userRecycleDetailSimulate/import?token=" + com.getToken()
-  },
-
-  importFacilityStatistics() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/facilitySimulate/import?token=" + com.getToken()
-  },
-
-  importWeeklyRecovery() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/recycleTypeSimulate/import?token=" + com.getToken()
-  },
-  importOutboundGoing() {
-    return process.env.VUE_APP_BASE_URL + "api/bid/recycleOutSimulate/import?token=" + com.getToken()
-  },
+ 
   // 显示图片地址的 前缀
   showUpload() {
     return process.env.VUE_APP_BASE_URL + "/storage/"
